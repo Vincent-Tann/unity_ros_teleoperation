@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="0.1" android:installLocation="preferExternal" android:compileSdkVersion="32" android:compileSdkVersionCodename="12" package="com.DefaultCompany.rostest" platformBuildVersionCode="32" platformBuildVersionName="12">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" android:versionCode="1" android:versionName="0.1" android:installLocation="preferExternal" android:compileSdkVersion="32" android:compileSdkVersionCodename="12" package="com.RSL.Teleoperation" platformBuildVersionCode="32" platformBuildVersionName="12">
     <uses-sdk android:minSdkVersion="23" android:targetSdkVersion="32"/>
     <supports-screens android:anyDensity="true" android:smallScreens="true" android:normalScreens="true" android:largeScreens="true" android:xlargeScreens="true"/>
     <uses-feature android:glEsVersion="0x30000"/>
@@ -11,7 +11,7 @@
     <uses-feature android:name="com.oculus.feature.CONTEXTUAL_BOUNDARYLESS_APP" android:required="true" />
     <uses-permission android:name="com.oculus.permission.USE_ANCHOR_API"/>
     <uses-permission android:name="com.oculus.permission.USE_SCENE"/>
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET" tools:node="replace"/>
     <uses-permission android:name="android.permission.BLUETOOTH" android:maxSdkVersion="30"/>
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" android:maxSdkVersion="30"/>
     <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
