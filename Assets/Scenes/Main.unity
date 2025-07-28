@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028301, g: 0.22571309, b: 0.30692127, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -480,6 +480,46 @@ PrefabInstance:
     - target: {fileID: 116081716880931452, guid: 7d9be845c256ccbb5a4780c5dc1f98a4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2972506711709872664, guid: 7d9be845c256ccbb5a4780c5dc1f98a4, type: 3}
+      propertyPath: m_fontSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2972506711709872664, guid: 7d9be845c256ccbb5a4780c5dc1f98a4, type: 3}
+      propertyPath: m_margin.w
+      value: 1.144566
+      objectReference: {fileID: 0}
+    - target: {fileID: 2972506711709872664, guid: 7d9be845c256ccbb5a4780c5dc1f98a4, type: 3}
+      propertyPath: m_margin.x
+      value: 11.321399
+      objectReference: {fileID: 0}
+    - target: {fileID: 2972506711709872664, guid: 7d9be845c256ccbb5a4780c5dc1f98a4, type: 3}
+      propertyPath: m_margin.y
+      value: 0.030292034
+      objectReference: {fileID: 0}
+    - target: {fileID: 2972506711709872664, guid: 7d9be845c256ccbb5a4780c5dc1f98a4, type: 3}
+      propertyPath: m_margin.z
+      value: 11.289159
+      objectReference: {fileID: 0}
+    - target: {fileID: 2972506711709872664, guid: 7d9be845c256ccbb5a4780c5dc1f98a4, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2972506711709872664, guid: 7d9be845c256ccbb5a4780c5dc1f98a4, type: 3}
+      propertyPath: m_overflowMode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2972506711709872664, guid: 7d9be845c256ccbb5a4780c5dc1f98a4, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2972506711709872664, guid: 7d9be845c256ccbb5a4780c5dc1f98a4, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3043070011885689242, guid: 7d9be845c256ccbb5a4780c5dc1f98a4, type: 3}
+      propertyPath: qsize
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7980368520199296132, guid: 7d9be845c256ccbb5a4780c5dc1f98a4, type: 3}
       propertyPath: m_Name
