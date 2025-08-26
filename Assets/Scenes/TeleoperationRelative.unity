@@ -579,7 +579,7 @@ MonoBehaviour:
   unityFrame: vr_origin
   headsetFrame: headset
   handFrameLeft: hand_left
-  poseTopic: /Quest3/pose
+  send_tf: 0
   headsetPose: {fileID: 7862207684358717888, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   headsetRotation: {fileID: -530380113134220495, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   handPoseLeft: {fileID: -2024308242397127297, guid: c348712bda248c246b8c49b3db54643f, type: 3}
@@ -765,6 +765,52 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &1585728815
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1585728817}
+  - component: {fileID: 1585728816}
+  m_Layer: 0
+  m_Name: HapticFeedbackReceiver
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1585728816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585728815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7d4d36044cc546bd98c47e933de650f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftHandHapticTopic: /Quest3/haptics/left
+  rightHandHapticTopic: /Quest3/haptics/right
+--- !u!4 &1585728817
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1585728815}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.108417, y: 2.0707078, z: 3.9670477}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1636025470
 GameObject:
   m_ObjectHideFlags: 0
@@ -774,8 +820,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1636025472}
-  - component: {fileID: 1636025473}
   - component: {fileID: 1636025474}
+  - component: {fileID: 1636025475}
+  - component: {fileID: 1636025476}
   m_Layer: 0
   m_Name: HandController
   m_TagString: Untagged
@@ -798,7 +845,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1636025473
+--- !u!114 &1636025474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636025470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44de639f9b12644bb84c602480d55351, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statusText: {fileID: 117775795}
+  fingerCurlThreshold: 0.1
+  fingerExtendThreshold: 0.15
+  thumbCurlThreshold: 0.13
+  thumbExtendThreshold: 0.13
+  maxHandHeadsetDistance: 0.4
+  holdDuration: 1
+  postSwitchLock: 2
+  calibrationHoldDuration: 0.5
+  calibrationCooldown: 3
+  calibrationConfirmDuration: 1
+  goHomeHoldDuration: 0.8
+  goHomeCooldown: 3
+  goHomeConfirmDuration: 1
+--- !u!114 &1636025475
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -813,7 +886,7 @@ MonoBehaviour:
   activeController: {fileID: 2108932052028572269, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   infoText: {fileID: 0}
   worldFrame: world
---- !u!114 &1636025474
+--- !u!114 &1636025476
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -822,20 +895,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1636025470}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91ff802dd077c4b2185f395d6b573073, type: 3}
+  m_Script: {fileID: 11500000, guid: 8551de45f67c64b2fbdd23e85d429582, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   statusText: {fileID: 117775795}
-  fingerCurlThreshold: 0.1
-  fingerExtendThreshold: 0.15
-  thumbCurlThreshold: 0.13
-  thumbExtendThreshold: 0.13
-  maxHandHeadsetDistance: 0.4
-  holdDuration: 1
-  postSwitchLock: 1
-  calibrationHoldDuration: 0.5
-  calibrationCooldown: 2
+  enableTriggerPauseToggle: 1
+  enableACalibration: 1
+  enableBGoHome: 1
+  buttonCooldown: 0.3
+  calibrationCooldown: 3
   calibrationConfirmDuration: 1
+  goHomeCooldown: 3
+  goHomeConfirmDuration: 1
 --- !u!1001 &2054280811
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -955,3 +1026,4 @@ SceneRoots:
   - {fileID: 1216055252}
   - {fileID: 765224263}
   - {fileID: 1636025472}
+  - {fileID: 1585728817}

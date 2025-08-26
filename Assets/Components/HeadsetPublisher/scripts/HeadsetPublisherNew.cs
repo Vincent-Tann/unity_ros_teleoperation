@@ -8,7 +8,9 @@ using RosMessageTypes.Geometry;
 using RosMessageTypes.Tf2;
 using RosMessageTypes.Std;
 using Unity.Robotics.ROSTCPConnector.ROSGeometry;
-using TimeMsg = RosMessageTypes.BuiltinInterfaces.TimeMsg;
+// ROS-TCP-Connector specific: TimeMsg is in BuiltinInterfaces namespace
+// but behaves differently based on ROS1/ROS2 compilation flags
+using RosMessageTypes.BuiltinInterfaces;
 
 public class HeadsetPublisherNew : MonoBehaviour
 {
@@ -81,6 +83,8 @@ public class HeadsetPublisherNew : MonoBehaviour
     /// </summary>
     void OnRosTimeHeader(HeaderMsg msg)
     {
+        // ROS-TCP-Connector: Uses 'nanosec' field for both ROS1 and ROS2 
+        // (the package handles the conversion internally)
         // ROS time in seconds
         double rosNow = msg.stamp.sec + msg.stamp.nanosec * 1e-9;
 
@@ -100,12 +104,14 @@ public class HeadsetPublisherNew : MonoBehaviour
 
     /// <summary>
     /// Converts a double representing Unix seconds to a ROS TimeMsg.
+    /// ROS-TCP-Connector handles ROS1/ROS2 differences internally.
     /// </summary>
     static TimeMsg ToRosTime(double unixSeconds)
     {
         uint sec  = (uint)Math.Floor(unixSeconds);
-        uint nsec = (uint)((unixSeconds - sec) * 1e9);
-        return new TimeMsg(sec, nsec);
+        uint nanosec = (uint)((unixSeconds - sec) * 1e9);
+        // ROS-TCP-Connector: TimeMsg constructor takes (sec, nanosec) for both ROS1/ROS2
+        return new TimeMsg(sec, nanosec);
     }
 
     /// <summary>
