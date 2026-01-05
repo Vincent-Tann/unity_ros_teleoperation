@@ -38,8 +38,8 @@ public class HandPubWorld : MonoBehaviour
         {20, XRHandJointID.LittleTip}
     };
 
-    // Input action for simple gesture publishing (optional)
-    public InputActionReference activeController;
+    // Input action for simple gesture publishing (removed)
+    // public InputActionReference activeController;
     
     // UI element for displaying status information
     public TextMeshProUGUI infoText;
@@ -54,7 +54,7 @@ public class HandPubWorld : MonoBehaviour
     private const string _baseTopic = "/Quest3";
     private const string _landmarksTopic = _baseTopic + "/hand_pose";
     private const string _pointCloudTopic = _baseTopic + "/hand_points";
-    private const string _gestureTopic = _baseTopic + "/hand_gesture";
+    // private const string _gestureTopic = _baseTopic + "/hand_gesture";
 
     // Frame ID for the ROS message headers
     public string worldFrame = "world"; // Changed to "world" or "unity_world" to reflect the coordinate system
@@ -101,33 +101,15 @@ public class HandPubWorld : MonoBehaviour
         ros = ROSConnection.GetOrCreateInstance();
         // ros.RegisterPublisher<ManoLandmarksMsg>(_landmarksTopic);
         ros.RegisterPublisher<PointCloudMsg>(_pointCloudTopic);
-        ros.RegisterPublisher<HandGestureMsg>(_gestureTopic);
+        // ros.RegisterPublisher<HandGestureMsg>(_gestureTopic);
     }
 
     void Update()
     {
-        // Publish a simple gesture if the activeController action is performed
-        if (activeController != null && activeController.action.ReadValue<float>() > 0.5f)
-        {
-            PubActiveController();
-        } 
-        else 
-        {
-            if(infoText != null)
-                infoText.color = Color.red;
-        }
+        // Logic for publishing gesture removed
     }
 
-    // Publishes a "Closed_Fist" gesture. Can be triggered by controller input.
-    public void PubActiveController()
-    {
-        HandGestureMsg msg = new HandGestureMsg();
-        msg.name = "Closed_Fist";
-        ros.Publish(_gestureTopic, msg);
-
-        if(infoText != null)
-            infoText.color = Color.green;
-    }
+    // PubActiveController method removed
     
     // Toggles whether to only use high-confidence tracking updates
     public void ToggleConfidence()
