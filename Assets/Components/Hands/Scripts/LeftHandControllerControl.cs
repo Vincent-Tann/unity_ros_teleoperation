@@ -79,9 +79,9 @@ public class LeftHandControllerControl : MonoBehaviour
     
     // ROS publishers (same topics as gesture control)
     private ROSConnection ros;
-    private string pauseTopicName = "/Quest3/isPaused";
-    private string calibrationTopicName = "/Quest3/requireCalibration";
-    private string goHomeTopicName = "/Quest3/requireGoHome";
+    private string pauseTopicName = "/Quest3/isPaused"; // Bool
+    private string calibrationTopicName = "/Quest3/requireCalibration"; // Empty
+    private string goHomeTopicName = "/Quest3/requireGoHome"; // Empty
     private bool lastPublishedPauseState = true;
 
     // Log throttling

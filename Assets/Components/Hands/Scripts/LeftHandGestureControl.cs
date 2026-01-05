@@ -330,7 +330,7 @@ public class LeftHandGestureControl : MonoBehaviour
                 Vector3.Distance(pos, wrist) > fingerExtendThreshold)
                 extended++;
         }
-        return extended >= 3;
+        return extended >= 4;
     }
 
     bool IsSwordFinger(XRHand hand)
@@ -507,7 +507,7 @@ public class LeftHandGestureControl : MonoBehaviour
                 extendedCount++;
         }
         
-        bool result = extendedCount >= 3;
+        bool result = extendedCount >= 4;
         string resultColor = result ? "green" : "red";
         Debug.Log($"<color={resultColor}>[IsOpenDebug] Extended fingers: {extendedCount}/4 (need >=3) - Final result: {(result ? "OPEN HAND DETECTED" : "NOT OPEN HAND")}</color>");
         
